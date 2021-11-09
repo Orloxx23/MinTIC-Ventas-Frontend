@@ -21,6 +21,7 @@ import NotFound from './pages/Page404';
 import Permission from './components/Permission';
 import Sell from './pages/Sells';
 import Welcome from './pages/Welcome';
+import Privacy from './pages/Privacy';
 
 // ----------------------------------------------------------------------
 
@@ -78,6 +79,7 @@ export default function App() {
           ) : (
             <Route path="/" element={<Home />} />
           )}
+          <Route path="/privacidad" element={<Primvacy />} />
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
     </ThemeConfig>
