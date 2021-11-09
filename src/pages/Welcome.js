@@ -37,28 +37,28 @@ export default function Welcome() {
                     alignItems: "center",
                 }}>
                     <Grid container spacing={3}>
-                        <Grid item xs={12} sm={7} md={4}>
-                            <Card>
+                        <Grid item xs={12} sm={12} md={4}>
+                            <Card sx={{ display: "flex", justifyContent: "center", }}>
                                 <CardContent>
                                     <Typography variant="h2">👍 Sencillo</Typography>
                                 </CardContent>
                             </Card>
                         </Grid>
-                        <Grid item xs={12} sm={7} md={4}>
-                            <Card>
+                        <Grid item xs={12} sm={12} md={4}>
+                            <Card sx={{ display: "flex", justifyContent: "center", }}>
                                 <CardContent>
                                     <Typography variant="h2">😀 Facil</Typography>
                                 </CardContent>
                             </Card>
                         </Grid>
-                        <Grid item xs={12} sm={7} md={4}>
-                            <Card>
+                        <Grid item xs={12} sm={12} md={4}>
+                            <Card sx={{ display: "flex", justifyContent: "center", }}>
                                 <CardContent>
                                     <Typography variant="h2">⚡ Rapido</Typography>
                                 </CardContent>
                             </Card>
                         </Grid>
-                        <Grid item xs={15} sm={9} md={5}>
+                        <Grid item xs={12} sm={12} md={5}>
                             <Link to="/ventas">
                                 <Card component="div" sx={{ display: "flex", justifyContent: "center", }}>
                                     <CardContent>
@@ -68,7 +68,7 @@ export default function Welcome() {
                                 </Card>
                             </Link>
                         </Grid>
-                        <Grid item xs={15} sm={9} md={7}>
+                        <Grid item xs={12} sm={12} md={7}>
                             <Card>
                                 <CardContent>
                                     <img src="/static/illustrations/welcome.svg" alt="Bienvenido" />
