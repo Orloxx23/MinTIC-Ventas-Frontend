@@ -79,7 +79,7 @@ export default function App() {
           ) : (
             <Route path="/" element={<Home />} />
           )}
-          <Route path="/privacidad" element={<Primvacy />} />
+          <Route path="/privacidad" element={<Privacy />} />
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
     </ThemeConfig>
