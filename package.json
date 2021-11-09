@@ -3,6 +3,9 @@
   "author": "minimals.cc",
   "licence": "MIT",
   "version": "1.2.0",
+  "engines": {
+    "node": "16.x"
+  },
   "private": false,
   "scripts": {
     "start": "react-scripts start",
