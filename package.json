@@ -97,5 +97,10 @@
     "eslint-plugin-react-hooks": "^4.2.0",
     "prettier": "^2.4.1"
   },
-  "proxy": "https://mintic-ventas-backend.herokuapp.com/api"
+  "proxy": {
+    "https://mintic-ventas-backend.herokuapp.com/api": {
+        "target": "https://mintic-ventas-backend.herokuapp.com",
+        "changeOrigin": true
+    }
+  }
 }
