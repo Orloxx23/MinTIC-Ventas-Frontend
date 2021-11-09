@@ -189,7 +189,7 @@ export default function Home() {
               </div>
               <div className="home-button">
                 <GoogleLogin
-                  clientId="155052294302-d7rjjhrng5ub0pfjjvkvrv3igu424uvi.apps.googleusercontent.com"
+                  clientId="976867177797-ntur7jg9ks2p53cs8pa9pe74u8p92ari.apps.googleusercontent.com"
                   render={(renderProps) => (
                     // eslint-disable-next-line react/button-has-type
                     <button
