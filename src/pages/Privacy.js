@@ -54,7 +54,7 @@ export default function Privacy() {
                 permanente. Usted puede eliminar las cookies en cualquier momento desde su ordenador. Sin embargo las cookies ayudan
                 a proporcionar un mejor servicio de los sitios web, estás no dan acceso a información de su ordenador ni de usted, a
                 menos de que usted así lo quiera y la proporcione directamente <a href="https://noticiasvalenciacf.es/"
-                    target="_blank">noticias</a>. Usted puede aceptar o negar el uso de cookies, sin embargo la mayoría de
+                    target="_blank" rel="noreferrer">noticias</a>. Usted puede aceptar o negar el uso de cookies, sin embargo la mayoría de
                 navegadores aceptan cookies automáticamente pues sirve para tener un mejor servicio web. También usted puede cambiar
                 la configuración de su ordenador para declinar las cookies. Si se declinan es posible que no pueda utilizar algunos
                 de nuestros servicios.
@@ -64,7 +64,7 @@ export default function Privacy() {
             </p>
             <p>Este sitio web pudiera contener en laces a otros sitios que pudieran ser de su interés. Una vez que usted de clic en
                 estos enlaces y abandone nuestra página, ya no tenemos control sobre al sitio al que es redirigido y por lo tanto no
-                somos responsables de los <a href="https://plantillaterminosycondicionestiendaonline.com/" target="_blank">términos
+                somos responsables de los <a href="https://plantillaterminosycondicionestiendaonline.com/" target="_blank" rel="noreferrer">términos
                     o privacidad</a> ni de la protección de sus datos en esos otros sitios terceros. Dichos sitios están sujetos a
                 sus propias políticas de privacidad por lo cual es recomendable que los consulte para confirmar que usted está de
                 acuerdo con estas.</p>
@@ -86,7 +86,7 @@ export default function Privacy() {
             </p>
             <p>
                 Esta politica de privacidad se han generado en <a href="https://politicadeprivacidadplantilla.com/"
-                    target="_blank">politicadeprivacidadplantilla.com</a>.<br />
+                    target="_blank" rel="noreferrer">politicadeprivacidadplantilla.com</a>.<br />
             </p>
         </div>
     )

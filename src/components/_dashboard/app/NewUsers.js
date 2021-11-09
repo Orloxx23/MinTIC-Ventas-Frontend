@@ -68,7 +68,7 @@ export default function NewUsers() {
       <Scrollbar>
         <Stack spacing={3} sx={{ p: 3, pr: 0 }}>
           {users.reverse().slice(0, 5).map((user) => (
-            <NewsItem key={user.title} news={user} />
+            <NewsItem key={user.name} news={user} />
           ))}
         </Stack>
       </Scrollbar>
