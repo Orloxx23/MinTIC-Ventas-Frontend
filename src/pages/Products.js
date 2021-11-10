@@ -290,7 +290,8 @@ export default function Products() {
                           <TableCell component="th" scope="row">
                             <Stack direction="row" alignItems="center" spacing={2}>
                               <Typography variant="subtitle2" noWrap>
-                                {trucate(description)}
+                                {/*trucate(description)*/}
+                                description
                               </Typography>
                             </Stack>
                           </TableCell>
