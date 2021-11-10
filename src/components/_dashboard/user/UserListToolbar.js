@@ -59,7 +59,7 @@ export default function UserListToolbar({ numSelected, filterName, onFilterName,
       <SearchStyle
         value={filterName}
         onChange={onFilterName}
-        placeholder="Buscar usaurio..."
+        placeholder="Buscar usuario..."
         startAdornment={
           <InputAdornment position="start">
             <Box component={Icon} icon={searchFill} sx={{ color: 'text.disabled' }} />
