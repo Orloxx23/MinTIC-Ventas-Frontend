@@ -1,18 +1,86 @@
 import React from 'react'
 import Page from '../components/Page';
-
 import {
     Container,
     Box,
     Typography,
     Card,
     CardContent,
+    CardActions,
     Grid,
+    TextField,
+    FormControl,
+    Autocomplete
 } from '@mui/material';
-
+import { useSnackbar } from 'notistack';
 import { Link } from "react-router-dom";
 
 export default function Welcome() {
+    const { user } = useContext(AuthContext);
+
+    const [products, setProducts] = useState([]);
+
+    const formatDate = (date) => {
+        const newDate = new Date(date);
+        const dia = newDate.getDate();
+        const mes = newDate.getMonth();
+        const anio = newDate.getFullYear();
+        return (dia + 1) + "/" + (mes + 1) + "/" + anio;
+    }
+
+    const [sellValues, setSellValues] = useState({
+        value: 0,
+        amount: '',
+        product: '0',
+        date: '',
+        clientId: '',
+        clientName: '',
+        sellerId: '',
+        state: ''
+    });
+
+    const { enqueueSnackbar } = useSnackbar();
+
+    const showAlert = (message, variant) => {
+        enqueueSnackbar(message, { variant });
+    };
+
+    const handleChange = (prop) => (event) => {
+        setSellValues({ ...sellValues, [prop]: event.target.value });
+    };
+
+    const changeProduct = (product) => {
+        setSellValues({ ...sellValues, product: product });
+    }
+
+
+    const submit = async (e) => {
+        e.preventDefault();
+        await axios.post('https://mintic-ventas-backend.herokuapp.com/api/sells', {
+            amount: sellValues.amount,
+            product: sellValues.product,
+            date: sellValues.date,
+            clientId: sellValues.clientId,
+            clientName: sellValues.clientName,
+            sellerId: user.user._id,
+        }).then(() => {
+            setSellValues({ ...sellValues, product: '0' });
+            showAlert('Nueva venta agregada', 'success');
+            getSells();
+            setOpen(false);
+        });
+    }
+
+    const getProducts = async () => {
+        await axios.get('https://mintic-ventas-backend.herokuapp.com/api/products').then((res) => {
+            setProducts(res.data);
+        });
+    };
+
+    useEffect(() => {
+        getProducts();
+    }, []);
+
     return (
         <Page title="MinTIC2022">
             <Container maxWidth="xl">
@@ -62,7 +130,87 @@ export default function Welcome() {
                             <Link to="/ventas">
                                 <Card component="div" sx={{ display: "flex", justifyContent: "center", }}>
                                     <CardContent>
-                                        <img src="/static/Captura.PNG" alt="Ventas" />
+                                        <Box component="form" Validate onSubmit={submit} sx={{ mt: 1 }} autoComplete="off">
+                                            <Typography variant="body1">Agregar venta</Typography>
+                                            <CardContent>
+                                                <Typography variant="body2">
+                                                    Valor total: {sellValues.product ? (
+                                                        sellValues.product === '0' ? (
+                                                            '$ 0'
+                                                        ) : (
+                                                            formatNumber(sellValues.product.price * sellValues.amount)
+                                                        )
+                                                    ) : (
+                                                        '$ 0'
+                                                    )}
+                                                </Typography>
+                                                <br />
+                                                <Grid container spacing={1}>
+                                                    <Grid item xs={9}>
+                                                        <FormControl fullWidth>
+                                                            <Autocomplete
+                                                                disablePortal
+                                                                id="combo-box-demo"
+                                                                onChange={(event, newValue) => {
+                                                                    changeProduct(newValue);
+                                                                }}
+                                                                options={products}
+                                                                getOptionLabel={(option) => option.description}
+                                                                fullWidth
+                                                                renderInput={(params) => <TextField {...params} label="Producto" />}
+                                                                required
+                                                            />
+                                                        </FormControl>
+                                                    </Grid>
+                                                    <Grid item xs={3}>
+                                                        <TextField
+                                                            id="amount"
+                                                            type="number"
+                                                            label="Cantidad"
+                                                            variant="outlined"
+                                                            placeholder="0"
+                                                            onChange={handleChange('amount')}
+                                                            required
+                                                            fullWidth
+                                                        />
+                                                    </Grid>
+                                                </Grid>
+                                                <br />
+                                                <TextField
+                                                    id="clientId"
+                                                    label="Documento del cliente"
+                                                    variant="outlined"
+                                                    onChange={handleChange('clientId')}
+                                                    required
+                                                    fullWidth
+                                                />
+                                                <br /><br />
+                                                <TextField
+                                                    id="clientName"
+                                                    label="Nombre del cliente"
+                                                    variant="outlined"
+                                                    onChange={handleChange('clientName')}
+                                                    required
+                                                    fullWidth
+                                                />
+                                                <br /><br />
+                                                <TextField
+                                                    id="date"
+                                                    label="Fecha"
+                                                    type="date"
+                                                    onChange={handleChange('date')}
+                                                    InputLabelProps={{
+                                                        shrink: true,
+                                                    }}
+                                                    required
+                                                    fullWidth
+                                                />
+                                            </CardContent>
+                                            <CardActions>
+                                                <Button type="submit">Agregar</Button>
+                                            </CardActions>
+                                        </Box>
+                                        {/* <img src="/static/Captura.PNG" alt="Ventas" /> */}
                                         {/* <Link to="/ventas"><Typography variant="body">Ver o agrerar ventas</Typography></Link> */}
                                     </CardContent>
                                 </Card>
