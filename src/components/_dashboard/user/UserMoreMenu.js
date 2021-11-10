@@ -49,7 +49,7 @@ export default function UserMoreMenu(props) {
 
   const submit = async (e) => {
     e.preventDefault();
-    await axios.put(`users/${props.id}`, { state: state, role: role });
+    await axios.put(`https://mintic-ventas-backend.herokuapp.com/api/users/${props.id}`, { state: state, role: role });
     props.getUsers();
     setOpen(false);
   };
