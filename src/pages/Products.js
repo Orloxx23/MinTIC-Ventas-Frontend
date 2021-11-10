@@ -267,8 +267,8 @@ export default function Products() {
                 />
                 <TableBody>
                   {filteredProducts
-                    .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                    .map((row) => {
+                    ?.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                    ?.map((row) => {
                       const { _id, description, price, state, createdAt } = row;
                       const isItemSelected = selected.indexOf(_id) !== -1;
 
