@@ -68,14 +68,14 @@ function getComparator(order, orderBy) {
 }
 
 function applySortFilter(array, comparator, query) {
-  const stabilizedThis = array?.map((el, index) => [el, index]);
+  const stabilizedThis = array.map((el, index) => [el, index]);
   stabilizedThis.sort((a, b) => {
     const order = comparator(a[0], b[0]);
     if (order !== 0) return order;
     return a[1] - b[1];
   });
   if (query) {
-    return filter(array, (_product) => _product.createdAt.toLowerCase().indexOf(query.toLowerCase()) !== -1);
+    return filter(array, (_product) => _product.date.toLowerCase().indexOf(query.toLowerCase()) !== -1);
   }
   return stabilizedThis.map((el) => el[0]);
 }
@@ -130,7 +130,7 @@ export default function Products() {
   }
 
   const getProducts = async () => {
-    await axios.get('/products').then((res) => {
+    await axios.get('https://mintic-ventas-backend.herokuapp.com/api/products').then((res) => {
       setProducts(res.data);
     });
   };
@@ -267,8 +267,8 @@ export default function Products() {
                 />
                 <TableBody>
                   {filteredProducts
-                    ?.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                    ?.map((row) => {
+                    .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                    .map((row) => {
                       const { _id, description, price, state, createdAt } = row;
                       const isItemSelected = selected.indexOf(_id) !== -1;
 

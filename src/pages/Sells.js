@@ -149,7 +149,7 @@ export default function Sells() {
   }
 
   const getSells = async () => {
-    await axios.get('/sells').then((res) => {
+    await axios.get('https://mintic-ventas-backend.herokuapp.com/api/sells').then((res) => {
       setSells(res.data);
     });
   };
