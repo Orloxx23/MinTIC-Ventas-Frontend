@@ -42,7 +42,7 @@ export default function AppWeeklySales() {
   const [total, setTotal] = React.useState();
 
   const getSells = async () => {
-    await axios.get('/sells').then(res => {
+    await axios.get('https://mintic-ventas-backend.herokuapp.com/api/sells').then(res => {
       setSells(res.data);
     })
   }

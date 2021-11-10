@@ -41,7 +41,7 @@ export default function AppItemOrders() {
   const [total, setTotal] = React.useState();
 
   const getProducts = async () => {
-    await axios.get('/products').then(res => {
+    await axios.get('https://mintic-ventas-backend.herokuapp.com/api/products').then(res => {
       setProducts(res.data);
     })
   }

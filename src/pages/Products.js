@@ -118,7 +118,7 @@ export default function Products() {
 
   const submit = async (e) => {
     e.preventDefault();
-    await axios.post('products', {
+    await axios.post('https://mintic-ventas-backend.herokuapp.com/api/products', {
       description: productValues.description,
       price: productValues.price,
       state: productValues.state

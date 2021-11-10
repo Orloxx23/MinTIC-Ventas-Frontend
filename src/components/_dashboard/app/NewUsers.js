@@ -52,7 +52,7 @@ export default function NewUsers() {
   const [users, setUsers] = React.useState([]);
 
   const getUsers = async () => {
-    await axios.get('/users').then(res => {
+    await axios.get('https://mintic-ventas-backend.herokuapp.com/api/users').then(res => {
       setUsers(res.data);
     })
   }

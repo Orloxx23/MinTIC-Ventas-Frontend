@@ -133,7 +133,7 @@ export default function Sells() {
   const submit = async (e) => {
     e.preventDefault();
 
-    await axios.post('sells', {
+    await axios.post('https://mintic-ventas-backend.herokuapp.com/api/sells', {
       amount: sellValues.amount,
       product: sellValues.product,
       date: sellValues.date,

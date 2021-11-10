@@ -72,7 +72,7 @@ export default function AppNewsUpdate() {
   const [sells, setSells] = React.useState([]);
 
   const getSells = async () => {
-    await axios.get('/sells').then(res => {
+    await axios.get('https://mintic-ventas-backend.herokuapp.com/api/sells').then(res => {
       setSells(res.data);
     })
   }
