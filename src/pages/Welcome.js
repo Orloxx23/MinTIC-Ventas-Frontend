@@ -22,10 +22,10 @@ export default function Welcome() {
 
     const [products, setProducts] = React.useState([]);
 
-    let product = useRef(null);
-    let amount = useRef(null);
-    let clientId = useRef(null);
-    let clientName = useRef(null);
+    let product = React.useRef(null);
+    let amount = React.useRef(null);
+    let clientId = React.useRef(null);
+    let clientName = React.useRef(null);
 
     function formatNumber(number) {
         return (
