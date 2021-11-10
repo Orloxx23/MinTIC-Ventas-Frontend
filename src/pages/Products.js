@@ -68,7 +68,7 @@ function getComparator(order, orderBy) {
 }
 
 function applySortFilter(array, comparator, query) {
-  const stabilizedThis = Object.keys(array).map((el) => [el]);
+  const stabilizedThis = array.map((el, index) => [el, index]);
   stabilizedThis.sort((a, b) => {
     const order = comparator(a[0], b[0]);
     if (order !== 0) return order;
@@ -290,8 +290,7 @@ export default function Products() {
                           <TableCell component="th" scope="row">
                             <Stack direction="row" alignItems="center" spacing={2}>
                               <Typography variant="subtitle2" noWrap>
-                                {/*trucate(description)*/}
-                                description
+                                {trucate(description)}
                               </Typography>
                             </Stack>
                           </TableCell>
