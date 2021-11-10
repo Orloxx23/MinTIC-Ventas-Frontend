@@ -75,7 +75,7 @@ function applySortFilter(array, comparator, query) {
     return a[1] - b[1];
   });
   if (query) {
-    return filter(array, (_product) => _product.createdAt.toLowerCase().indexOf(query.toLowerCase()) !== -1);
+    return filter(array, (_product) => _product.description.toLowerCase().indexOf(query.toLowerCase()) !== -1);
   }
   return stabilizedThis.map((el) => el[0]);
 }
@@ -166,7 +166,7 @@ export default function Products() {
   const [page, setPage] = useState(0);
   const [order, setOrder] = useState('asc');
   const [selected, setSelected] = useState([]);
-  const [orderBy, setOrderBy] = useState('date');
+  const [orderBy, setOrderBy] = useState('description');
   const [filterName, setFilterName] = useState('');
   const [rowsPerPage, setRowsPerPage] = useState(5);
 
