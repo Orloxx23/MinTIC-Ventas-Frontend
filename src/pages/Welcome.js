@@ -130,94 +130,92 @@ export default function Welcome() {
                             </Card>
                         </Grid>
                         <Grid item xs={12} sm={12} md={5}>
-                            <Link to="/ventas">
-                                <Card component="div" sx={{ display: "flex", justifyContent: "center", }}>
-                                    <CardContent>
-                                        <Box component="form" Validate onSubmit={submit} sx={{ mt: 1 }} autoComplete="off">
-                                            <Typography variant="body1">Agregar venta</Typography>
-                                            <CardContent>
-                                                <Typography variant="body2">
-                                                    Valor total: {sellValues.product ? (
-                                                        sellValues.product === '0' ? (
-                                                            '$ 0'
-                                                        ) : (
-                                                            formatNumber(sellValues.product.price * sellValues.amount)
-                                                        )
-                                                    ) : (
+                            <Card>
+                                <CardContent>
+                                    <Box component="form" Validate onSubmit={submit} sx={{ mt: 1 }} autoComplete="off">
+                                        <Typography variant="body1">Agregar venta</Typography>
+                                        <CardContent>
+                                            <Typography variant="body2">
+                                                Valor total: {sellValues.product ? (
+                                                    sellValues.product === '0' ? (
                                                         '$ 0'
-                                                    )}
-                                                </Typography>
-                                                <br />
-                                                <Grid container spacing={1}>
-                                                    <Grid item xs={9}>
-                                                        <FormControl fullWidth>
-                                                            <Autocomplete
-                                                                disablePortal
-                                                                id="combo-box-demo"
-                                                                onChange={(event, newValue) => {
-                                                                    changeProduct(newValue);
-                                                                }}
-                                                                options={products}
-                                                                getOptionLabel={(option) => option.description}
-                                                                fullWidth
-                                                                renderInput={(params) => <TextField {...params} label="Producto" />}
-                                                                required
-                                                            />
-                                                        </FormControl>
-                                                    </Grid>
-                                                    <Grid item xs={3}>
-                                                        <TextField
-                                                            id="amount"
-                                                            type="number"
-                                                            label="Cantidad"
-                                                            variant="outlined"
-                                                            placeholder="0"
-                                                            onChange={handleChange('amount')}
-                                                            required
+                                                    ) : (
+                                                        formatNumber(sellValues.product.price * sellValues.amount)
+                                                    )
+                                                ) : (
+                                                    '$ 0'
+                                                )}
+                                            </Typography>
+                                            <br />
+                                            <Grid container spacing={1}>
+                                                <Grid item xs={9}>
+                                                    <FormControl fullWidth>
+                                                        <Autocomplete
+                                                            disablePortal
+                                                            id="combo-box-demo"
+                                                            onChange={(event, newValue) => {
+                                                                changeProduct(newValue);
+                                                            }}
+                                                            options={products}
+                                                            getOptionLabel={(option) => option.description}
                                                             fullWidth
+                                                            renderInput={(params) => <TextField {...params} label="Producto" />}
+                                                            required
                                                         />
-                                                    </Grid>
+                                                    </FormControl>
                                                 </Grid>
-                                                <br />
-                                                <TextField
-                                                    id="clientId"
-                                                    label="Documento del cliente"
-                                                    variant="outlined"
-                                                    onChange={handleChange('clientId')}
-                                                    required
-                                                    fullWidth
-                                                />
-                                                <br /><br />
-                                                <TextField
-                                                    id="clientName"
-                                                    label="Nombre del cliente"
-                                                    variant="outlined"
-                                                    onChange={handleChange('clientName')}
-                                                    required
-                                                    fullWidth
-                                                />
-                                                <br /><br />
-                                                <TextField
-                                                    id="date"
-                                                    label="Fecha"
-                                                    type="date"
-                                                    onChange={handleChange('date')}
-                                                    InputLabelProps={{
-                                                        shrink: true,
-                                                    }}
-                                                    required
-                                                    fullWidth
-                                                />
-                                            </CardContent>
-                                            <CardActions>
-                                                <Button type="submit">Agregar</Button>
-                                            </CardActions>
-                                        </Box>
-                                        {/* <img src="/static/Captura.PNG" alt="Ventas" /> */}
-                                        {/* <Link to="/ventas"><Typography variant="body">Ver o agrerar ventas</Typography></Link> */}
-                                    </CardContent>
-                                </Card>
-                            </Link>
+                                                <Grid item xs={3}>
+                                                    <TextField
+                                                        id="amount"
+                                                        type="number"
+                                                        label="Cantidad"
+                                                        variant="outlined"
+                                                        placeholder="0"
+                                                        onChange={handleChange('amount')}
+                                                        required
+                                                        fullWidth
+                                                    />
+                                                </Grid>
+                                            </Grid>
+                                            <br />
+                                            <TextField
+                                                id="clientId"
+                                                label="Documento del cliente"
+                                                variant="outlined"
+                                                onChange={handleChange('clientId')}
+                                                required
+                                                fullWidth
+                                            />
+                                            <br /><br />
+                                            <TextField
+                                                id="clientName"
+                                                label="Nombre del cliente"
+                                                variant="outlined"
+                                                onChange={handleChange('clientName')}
+                                                required
+                                                fullWidth
+                                            />
+                                            <br /><br />
+                                            <TextField
+                                                id="date"
+                                                label="Fecha"
+                                                type="date"
+                                                onChange={handleChange('date')}
+                                                InputLabelProps={{
+                                                    shrink: true,
+                                                }}
+                                                required
+                                                fullWidth
+                                            />
+                                        </CardContent>
+                                        <CardActions>
+                                            <Button type="submit">Agregar</Button>
+                                        </CardActions>
+                                    </Box>
+                                    {/* <img src="/static/Captura.PNG" alt="Ventas" /> */}
+                                    {/* <Link to="/ventas"><Typography variant="body">Ver o agrerar ventas</Typography></Link> */}
+                                </CardContent>
+                            </Card>
                         </Grid>
                         <Grid item xs={12} sm={12} md={7}>
                             <Card>
