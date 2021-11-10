@@ -62,7 +62,7 @@ export default function Welcome() {
                             <Link to="/ventas">
                                 <Card component="div" sx={{ display: "flex", justifyContent: "center", }}>
                                     <CardContent>
-                                        <img src="/static/captura.PNG" alt="Ventas" />
+                                        <img src="/static/Captura.PNG" alt="Ventas" />
                                         {/* <Link to="/ventas"><Typography variant="body">Ver o agrerar ventas</Typography></Link> */}
                                     </CardContent>
                                 </Card>

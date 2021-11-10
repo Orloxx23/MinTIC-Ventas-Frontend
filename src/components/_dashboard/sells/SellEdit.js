@@ -53,7 +53,7 @@ export default function SellEdit(props) {
                 state: props.sell.state
             }
         )
-        getProducts(() => console.log("lol"));
+        getProducts();
     }, [props.openEdit, props.sell])
 
     const handleClose = () => {
