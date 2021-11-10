@@ -47,14 +47,14 @@ export default function Welcome() {
                         <Grid item xs={12} sm={12} md={4}>
                             <Card sx={{ display: "flex", justifyContent: "center", }}>
                                 <CardContent>
-                                    <Typography variant="h2">😀 Facil</Typography>
+                                    <Typography variant="h2">😀 Fácil</Typography>
                                 </CardContent>
                             </Card>
                         </Grid>
                         <Grid item xs={12} sm={12} md={4}>
                             <Card sx={{ display: "flex", justifyContent: "center", }}>
                                 <CardContent>
-                                    <Typography variant="h2">⚡ Rapido</Typography>
+                                    <Typography variant="h2">⚡ Rápido</Typography>
                                 </CardContent>
                             </Card>
                         </Grid>
