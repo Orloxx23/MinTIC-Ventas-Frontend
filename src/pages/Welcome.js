@@ -15,13 +15,17 @@ import {
     Button
 } from '@mui/material';
 import { useSnackbar } from 'notistack';
-import { Link } from "react-router-dom";
 import { AuthContext } from '../context/AuthContext';
 
 export default function Welcome() {
     const { user } = React.useContext(AuthContext);
 
     const [products, setProducts] = React.useState([]);
+
+    let product = useRef(null);
+    let amount = useRef(null);
+    let clientId = useRef(null);
+    let clientName = useRef(null);
 
     function formatNumber(number) {
         return (
@@ -69,8 +73,22 @@ export default function Welcome() {
             clientName: sellValues.clientName,
             sellerId: user.user._id,
         }).then(() => {
-            setSellValues({ ...sellValues, product: '0' });
+            setSellValues({
+                value: 0,
+                amount: '',
+                product: '0',
+                date: '',
+                clientId: '',
+                clientName: '',
+                sellerId: '',
+                state: ''
+            });
+            product.current.value = "";
+            amount.current.value = "";
+            clientId.current.value = "";
+            clientName.current.value = "";
             showAlert('Nueva venta agregada', 'success');
+
         });
     }
 
@@ -158,6 +176,7 @@ export default function Welcome() {
                                                             }}
                                                             options={products}
                                                             getOptionLabel={(option) => option.description}
+                                                            inputRef={product}
                                                             fullWidth
                                                             renderInput={(params) => <TextField {...params} label="Producto" />}
                                                             required
@@ -171,6 +190,7 @@ export default function Welcome() {
                                                         label="Cantidad"
                                                         variant="outlined"
                                                         placeholder="0"
+                                                        inputRef={amount}
                                                         onChange={handleChange('amount')}
                                                         required
                                                         fullWidth
@@ -183,6 +203,7 @@ export default function Welcome() {
                                                 label="Documento del cliente"
                                                 variant="outlined"
                                                 onChange={handleChange('clientId')}
+                                                inputRef={clientId}
                                                 required
                                                 fullWidth
                                             />
@@ -192,6 +213,7 @@ export default function Welcome() {
                                                 label="Nombre del cliente"
                                                 variant="outlined"
                                                 onChange={handleChange('clientName')}
+                                                inputRef={clientName}
                                                 required
                                                 fullWidth
                                             />
