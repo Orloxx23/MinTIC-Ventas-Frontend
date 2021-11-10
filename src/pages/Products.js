@@ -67,8 +67,8 @@ function getComparator(order, orderBy) {
     : (a, b) => -descendingComparator(a, b, orderBy);
 }
 
-/*function applySortFilter(array, comparator, query) {
-  const stabilizedThis = array.map((el, index) => [el, index]);
+function applySortFilter(array, comparator, query) {
+  const stabilizedThis = Object.keys(array).map((el) => [el]);
   stabilizedThis.sort((a, b) => {
     const order = comparator(a[0], b[0]);
     if (order !== 0) return order;
@@ -78,7 +78,7 @@ function getComparator(order, orderBy) {
     return filter(array, (_product) => _product.description.toLowerCase().indexOf(query.toLowerCase()) !== -1);
   }
   return stabilizedThis.map((el) => el[0]);
-}*/
+}
 
 export default function Products() {
   const formatDate = (date) => {
@@ -219,9 +219,9 @@ export default function Products() {
 
   const emptyRows = page > 0 ? Math.max(0, (1 + page) * rowsPerPage - products.length) : 0;
 
-  //const filteredProducts = applySortFilter(products, getComparator(order, orderBy), filterName);
+  const filteredProducts = applySortFilter(products, getComparator(order, orderBy), filterName);
 
-  const isProductNotFound = products.length === 0;//filteredProducts.length === 0;
+  const isProductNotFound = filteredProducts.length === 0;
 
   return (
     <Page title="Productos | MinTIC2022">
@@ -266,7 +266,7 @@ export default function Products() {
                   onSelectAllClick={handleSelectAllClick}
                 />
                 <TableBody>
-                  {products//filteredProducts
+                  {filteredProducts
                     .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                     .map((row) => {
                       const { _id, description, price, state, createdAt } = row;
