@@ -22,11 +22,6 @@ export default function Welcome() {
 
     const [products, setProducts] = React.useState([]);
 
-    let product = React.useRef(null);
-    let amount = React.useRef(null);
-    let clientId = React.useRef(null);
-    let clientName = React.useRef(null);
-
     function formatNumber(number) {
         return (
             new Intl.NumberFormat("ES-CO", {
@@ -83,10 +78,6 @@ export default function Welcome() {
                 sellerId: '',
                 state: ''
             });
-            product.current.value = "";
-            amount.current.value = "";
-            clientId.current.value = "";
-            clientName.current.value = "";
             showAlert('Nueva venta agregada', 'success');
 
         });
@@ -176,7 +167,6 @@ export default function Welcome() {
                                                             }}
                                                             options={products}
                                                             getOptionLabel={(option) => option.description}
-                                                            inputRef={product}
                                                             fullWidth
                                                             renderInput={(params) => <TextField {...params} label="Producto" />}
                                                             required
@@ -190,7 +180,6 @@ export default function Welcome() {
                                                         label="Cantidad"
                                                         variant="outlined"
                                                         placeholder="0"
-                                                        inputRef={amount}
                                                         onChange={handleChange('amount')}
                                                         required
                                                         fullWidth
@@ -203,7 +192,6 @@ export default function Welcome() {
                                                 label="Documento del cliente"
                                                 variant="outlined"
                                                 onChange={handleChange('clientId')}
-                                                inputRef={clientId}
                                                 required
                                                 fullWidth
                                             />
@@ -213,7 +201,6 @@ export default function Welcome() {
                                                 label="Nombre del cliente"
                                                 variant="outlined"
                                                 onChange={handleChange('clientName')}
-                                                inputRef={clientName}
                                                 required
                                                 fullWidth
                                             />
