@@ -1,4 +1,5 @@
-import React from 'react'
+import * as React from 'react'
+import axios from 'axios'
 import Page from '../components/Page';
 import {
     Container,
@@ -10,25 +11,29 @@ import {
     Grid,
     TextField,
     FormControl,
-    Autocomplete
+    Autocomplete,
+    Button
 } from '@mui/material';
 import { useSnackbar } from 'notistack';
 import { Link } from "react-router-dom";
+import { AuthContext } from '../context/AuthContext';
 
 export default function Welcome() {
-    const { user } = useContext(AuthContext);
+    const { user } = React.useContext(AuthContext);
 
-    const [products, setProducts] = useState([]);
+    const [products, setProducts] = React.useState([]);
 
-    const formatDate = (date) => {
-        const newDate = new Date(date);
-        const dia = newDate.getDate();
-        const mes = newDate.getMonth();
-        const anio = newDate.getFullYear();
-        return (dia + 1) + "/" + (mes + 1) + "/" + anio;
+    function formatNumber(number) {
+        return (
+            new Intl.NumberFormat("ES-CO", {
+                minimumSignificantDigits: 1,
+                style: "currency",
+                currency: "COP"
+            }).format(number)
+        );
     }
 
-    const [sellValues, setSellValues] = useState({
+    const [sellValues, setSellValues] = React.useState({
         value: 0,
         amount: '',
         product: '0',
@@ -66,8 +71,6 @@ export default function Welcome() {
         }).then(() => {
             setSellValues({ ...sellValues, product: '0' });
             showAlert('Nueva venta agregada', 'success');
-            getSells();
-            setOpen(false);
         });
     }
 
@@ -77,7 +80,7 @@ export default function Welcome() {
         });
     };
 
-    useEffect(() => {
+    React.useEffect(() => {
         getProducts();
     }, []);
 
