@@ -55,7 +55,7 @@ export default function ProductListToolbar({ numSelected, filterName, onFilterNa
     const num = numSelected;
     try {
       products.map(async (product) => {
-        await axios.delete(`products/${product}`).then(() => {
+        await axios.delete(`https://mintic-ventas-backend.herokuapp.com/api/products/${product}`).then(() => {
           setSelected([]);
           getProducts();
         });

@@ -33,7 +33,7 @@ export default function SellEdit(props) {
     });
 
     const getProducts = async () => {
-        await axios.get('/products').then((res) => {
+        await axios.get('https://mintic-ventas-backend.herokuapp.com/api/products').then((res) => {
             setProducts(res.data);
         });
     };
@@ -67,7 +67,7 @@ export default function SellEdit(props) {
 
     const submit = async (e) => {
         e.preventDefault();
-        await axios.put(`sells/${props.id}`, {
+        await axios.put(`https://mintic-ventas-backend.herokuapp.com/api/sells/${props.id}`, {
             id: sellValues.id,
             value: sellValues.value,
             amount: sellValues.amount,

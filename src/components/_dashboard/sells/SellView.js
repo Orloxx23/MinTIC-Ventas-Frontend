@@ -40,14 +40,14 @@ export default function ProductView(props) {
 
     const [disponible, setDisponible] = React.useState([]);
     const getProduct = async (id) => {
-        await axios.get(`products/${id}`).then((res) => {
+        await axios.get(`https://mintic-ventas-backend.herokuapp.com/api/products/${id}`).then((res) => {
             setDisponible(res.data.state)
         });
     };
 
     const [seller, setSeller] = React.useState([]);
     const getSeller = async (id) => {
-        await axios.get(`users/${id}`).then((res) => {
+        await axios.get(`https://mintic-ventas-backend.herokuapp.com/api/users/${id}`).then((res) => {
             setSeller(res.data.name);
         });
     };

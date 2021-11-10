@@ -44,7 +44,7 @@ export default function ProductEdit(props) {
 
     const submit = async (e) => {
         e.preventDefault();
-        await axios.put(`products/${props.id}`, {
+        await axios.put(`https://mintic-ventas-backend.herokuapp.com/api/products/${props.id}`, {
             description: productValues.description,
             price: productValues.price,
             state: productValues.state

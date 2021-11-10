@@ -55,7 +55,7 @@ export default function SellListToolbar({ numSelected, filterName, onFilterName,
     const num = numSelected;
     try {
       sells.map(async (sell) => {
-        await axios.delete(`sells/${sell}`).then(() => {
+        await axios.delete(`https://mintic-ventas-backend.herokuapp.com/api/sells/${sell}`).then(() => {
           setSelected([]);
           getSells();
         });

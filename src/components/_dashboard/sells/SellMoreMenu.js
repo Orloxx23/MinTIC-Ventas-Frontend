@@ -27,7 +27,7 @@ export default function SellMoreMenu(props) {
   }
 
   const deleteSell = (id) => {
-    axios.delete(`/sells/${id}`).then(() => {
+    axios.delete(`https://mintic-ventas-backend.herokuapp.com/api/sells/${id}`).then(() => {
       props.showAlert('Se ha eliminado correctamente', 'success');
       props.getSells();
     });
