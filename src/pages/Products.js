@@ -177,7 +177,6 @@ export default function Products() {
   };
 
   const handleSelectAllClick = (event) => {
-    console.log(event);
     if (event.target.checked) {
       const newSelecteds = products.map((n) => n._id);
       setSelected(newSelecteds);
